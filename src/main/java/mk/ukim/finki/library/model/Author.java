@@ -1,9 +1,6 @@
-package mk.ukim.finki.biblioteka.model;
+package mk.ukim.finki.library.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import javax.persistence.*;
 import lombok.Data;
 
 @Data
@@ -16,5 +13,15 @@ public class Author {
 
     private String name;
     private String surname;
-    private
+    @ManyToOne
+    private Country country;
+
+    public Author() {
+    }
+
+    public Author(String name, String surname, Country country) {
+        this.name = name;
+        this.surname = surname;
+        this.country = country;
+    }
 }

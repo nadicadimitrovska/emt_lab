@@ -1,2 +1,4 @@
-package mk.ukim.finki.library.web.controller;public class BooksController {
+package mk.ukim.finki.library.web.controller;
+
+public class BooksController {
 }

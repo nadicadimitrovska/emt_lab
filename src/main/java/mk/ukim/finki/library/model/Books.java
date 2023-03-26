@@ -1,10 +1,8 @@
-package mk.ukim.finki.biblioteka.model;
+package mk.ukim.finki.library.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import javax.persistence.*;
 import lombok.Data;
+import mk.ukim.finki.library.model.enumerations.Category;
 
 
 @Data
@@ -16,6 +14,19 @@ public class Books {
     private Long id;
 
     private String name;
-    private
+    @Enumerated(value = EnumType.STRING)
+    private Category category;
+    @ManyToOne
+    private Author author;
     private Integer availableCopies;
+
+    public Books() {
+    }
+
+    public Books(String name, Category category, Author author, Integer availableCopies) {
+        this.name = name;
+        this.category = category;
+        this.author = author;
+        this.availableCopies = availableCopies;
+    }
 }
